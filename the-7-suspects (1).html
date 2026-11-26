@@ -1,0 +1,146 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>THE 7 SUSPECTS</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0c;--ch:#17171b;--ch2:#232329;--red:#a3111a;--red2:#e0242f;--gold:#c9a14a;--tx:#e6e1d6;--mu:#8d8a82;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--tx);font-family:'Special Elite',Georgia,'Courier New',serif}
+body{background:radial-gradient(ellipse at 50% 0,#2a0d10 0,#0a0a0c 60%) fixed}
+body::before{content:"";position:fixed;inset:auto 0 0 0;height:38vh;background:linear-gradient(#0000,#000a),repeating-linear-gradient(90deg,#0f0f12 0 40px,#0c0c0f 40px 90px);clip-path:polygon(0 60%,8% 60%,8% 35%,14% 20%,20% 35%,20% 55%,40% 55%,40% 25%,50% 5%,60% 25%,60% 55%,80% 55%,80% 35%,86% 20%,92% 35%,92% 60%,100% 60%,100% 100%,0 100%);z-index:-1}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 50%,#0000 40%,#000b);z-index:-1}
+h1,h2,h3,h4,.cz{font-family:Cinzel,Georgia,serif;letter-spacing:.08em}
+#app{max-width:980px;margin:0 auto;padding:14px;animation:fade .6s}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1}}
+.menu{text-align:center;padding:6vh 0 20px}
+.menu h1{font-size:clamp(34px,9vw,72px);margin:0;color:var(--tx);text-shadow:0 0 30px #a3111a99}
+.menu h1 b{color:var(--red2)}.tag{color:var(--gold);letter-spacing:.2em;font-size:13px;margin:10px 0 28px;text-transform:uppercase}
+.mb2{display:flex;flex-direction:column;gap:10px;max-width:340px;margin:auto}
+button{font-family:inherit;color:var(--tx);cursor:pointer}
+.btn{background:linear-gradient(#1c1c21,#121215);border:1px solid #3a3a42;padding:13px 18px;font-size:15px;letter-spacing:.12em;text-transform:uppercase;transition:.25s}
+.btn:hover:not(:disabled){border-color:var(--gold);color:var(--gold);transform:translateX(4px);box-shadow:-4px 0 0 var(--red)}
+.btn:disabled{opacity:.35;cursor:not-allowed}.btn.red{background:linear-gradient(#7d0d14,#4d070c);border-color:var(--red2)}
+.credit{color:var(--mu);font-size:12px;text-align:center;margin-top:30px}
+.top{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between;border-bottom:1px solid #333;padding-bottom:10px;margin-bottom:12px}
+.pills{display:flex;gap:4px;flex-wrap:wrap}.pill{background:var(--ch);border:1px solid #333;padding:7px 11px;font-size:12px}
+.pill.on{border-color:var(--red2);background:#3a0b0f;color:#fff}.pill.lk{opacity:.5}
+.tools{display:flex;gap:6px;flex-wrap:wrap;font-size:12px}.tools button{background:var(--ch2);border:1px solid #3a3a42;padding:7px 10px}
+.tools button:hover{border-color:var(--gold)}.sc{color:var(--gold);align-self:center}
+.panel{background:linear-gradient(#17171bf0,#101013f0);border:1px solid #2f2f36;padding:16px;border-radius:3px}
+h2{margin:0 0 6px;color:var(--gold)}.sub{color:var(--mu);margin:0 0 12px;font-size:14px}
+.scene{position:relative;height:min(52vh,420px);margin:12px 0;border:2px solid #3a2a1a;background:linear-gradient(#1b1210,#0e0908 60%,#1a0f0c);overflow:hidden;border-radius:3px}
+.scene::before{content:"";position:absolute;left:14%;right:14%;bottom:8%;height:34%;background:radial-gradient(ellipse,#5a1017aa,#2a0a0d66 70%);border-radius:50%}
+.scene::after{content:"STUDY — BLACKWOOD MANOR";position:absolute;left:10px;top:8px;font-size:11px;color:var(--mu);letter-spacing:.2em}
+.hot{position:absolute;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:#000a;border:1px dashed #c9a14a88;font-size:26px;animation:pulse 2s infinite}
+.hot.got{border:2px solid var(--gold);animation:none;background:#2a210a}
+@keyframes pulse{50%{box-shadow:0 0 18px #c9a14a88}}
+.type{min-height:70px;background:#000;border-left:3px solid var(--red2);padding:12px;margin:10px 0;line-height:1.55;font-size:15px;white-space:pre-wrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.card{background:var(--ch);border:1px solid #333;padding:14px;text-align:left;transition:.25s;position:relative}
+.card:hover{border-color:var(--gold);transform:translateY(-3px)}.card.seen::after{content:"FILE READ";position:absolute;right:8px;top:8px;font-size:9px;color:var(--gold)}
+.av{width:58px;height:58px;border-radius:50%;background:var(--c);color:#000;display:grid;place-items:center;font:800 26px Cinzel,serif;flex:none;box-shadow:0 0 0 3px #000,0 0 0 4px var(--gold)}
+.row{display:flex;gap:12px;align-items:center}.card h3{margin:10px 0 2px;font-size:16px}
+small,.mu{color:var(--mu)}.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.chip{background:var(--ch2);border:1px solid #3a3a42;padding:7px 11px;font-size:13px}.chip.on{border-color:var(--red2);background:#3a0b0f}
+.opt{display:block;width:100%;text-align:left;margin:5px 0;background:var(--ch2);border:1px solid #333;padding:10px;font-size:14px}
+.opt:hover{border-color:var(--gold)}.opt.ev{border-left:3px solid var(--gold)}.opt.sel{background:#3a0b0f;border-color:var(--red2)}
+.loc{background:var(--ch);border:1px solid #3a3a42;padding:22px 10px;font-size:15px}.loc.lk{opacity:.4}
+#m{position:fixed;inset:0;background:#000d;display:none;z-index:9;overflow:auto;padding:14px;padding-top:calc(14px + env(safe-area-inset-top,0px))}#m.on{display:block}
+.mb{max-width:760px;margin:auto;background:#111114;border:1px solid var(--gold);padding:18px;position:relative;animation:fade .3s}
+.x{position:absolute;right:8px;top:8px;background:none;border:1px solid #444;width:30px;height:30px}
+textarea{width:100%;min-height:90px;background:#0b0b0d;color:var(--tx);border:1px solid #444;padding:8px;font:inherit}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,40px);background:var(--red);padding:10px 16px;opacity:0;transition:.3s;z-index:99;font-size:14px;max-width:90vw;text-align:center}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+svg{width:100%;background:#2a1a10 radial-gradient(#3a2616,#1a0f08);border:4px solid #4a3220}
+.end h2{font-size:28px;color:var(--red2)}.end.win h2{color:var(--gold)}
+li{margin:6px 0}hr{border:0;border-top:1px solid #333}
+</style></head><body>
+<div id="app"></div><div id="m"></div><div id="toast"></div>
+<script>
+const EV={
+watch:{n:"Smashed Pocket Watch",i:"🕰️",d:"A gold pocket watch, crushed and stopped at 11:12 PM. Alexander died 18 minutes before his body was found at 11:30.",w:[],x:16,y:62},
+will:{n:"Burnt Will Fragment",i:"📜",d:"Half-burnt in the fireplace: a will drafted tonight. “…Daniel Blackwood is removed from all inheritance…”",w:["daniel","richard"],x:78,y:52},
+cuff:{n:"Engraved Cufflink",i:"💎",d:"Gold, engraved “D.B.”, lying beneath the desk where the struggle took place.",w:["daniel"],x:47,y:78},
+lock:{n:"Locked-Room Check",i:"🔒",d:"Every window is latched from the inside and the door was locked. The killer had a key, or Alexander let them in himself.",w:[],x:88,y:22},
+weapon:{n:"Brass Bookend",i:"🗿",d:"Blood on one corner, prints wiped clean. The killer pulled their sleeves over their hands.",w:[],x:30,y:32},
+gate:{n:"Gatehouse Camera Log",i:"📹",d:"The log shows Daniel’s Jaguar passing the gate at 10:48 PM. Daniel claims he arrived after midnight.",w:["daniel","victor"]},
+key:{n:"Missing Spare Key",i:"🗝️",d:"The study’s spare key is gone from the servants’ rack. Only one person asked Martha for it tonight.",w:["daniel","martha"]},
+photo:{n:"Olivia’s Photograph",i:"📷",d:"A blurry shot stamped 11:14 PM: a tall young man leaving the study, a gold glint at his cuff.",w:["daniel","olivia"]},
+letter:{n:"Hidden Love Letter",i:"💌",d:"A tender letter from Sophia to Dr. James, dated this week. They were secretly together.",w:["sophia","james"]},
+ledger:{n:"Richard’s Secret Ledger",i:"📒",d:"Company funds siphoned into a private account. Alexander had found out.",w:["richard"]}};
+const HL={gatehouse:["The Gatehouse","gate"],servants:["Servants’ Hall","key"],library:["The Library","photo"],garden:["Moonlit Garden","letter"],car:["Richard’s Car","ledger"]};
+const SU={
+richard:{n:"Richard Hale",r:"Business Partner",c:"#9aa7b5",m:"Alexander was about to expose his embezzlement and dissolve the partnership.",a:"Says he was on a call with a Tokyo client in his car, 11:00–11:30 PM.",s:"He has been stealing from the company for two years.",
+q:[["Where were you at 11 PM?","In my car, on a call with our Tokyo client from eleven to half past. Check the phone records."],["Any disputes with Alexander?","Boardroom disagreements. Nothing worth killing for."],["Anything in your car I should see?","Search it if you like. I have nothing to hide…","car"]],
+p:{ledger:["Alright. I borrowed from company funds and Alexander found out. But I was on that call. I’m a thief, not a killer.",null],will:["A new will? He never told me. That changes the whole company.",null]}},
+sophia:{n:"Sophia Blackwood",r:"Wife",c:"#c98a9a",m:"A loveless marriage and a large inheritance.",a:"Says she was in bed with a migraine from 10:30 PM.",s:"She is having an affair with Dr. James.",
+q:[["Tell me about your marriage.","We drifted apart. Alexander lived for his empire, not for me."],["Did you hear anything tonight?","Raised voices near the study. A young man’s voice, I couldn’t tell whose."],["Were you really in bed all night?","Yes… mostly. I may have stepped out for some air.","garden"]],
+p:{letter:["Yes, James and I… we were in the garden from eleven until 11:25. I lied because it would ruin us both.","Sophia claimed to be in bed, but she was in the garden with Dr. James."],will:["He was cutting someone out? Not me, surely…",null]}},
+daniel:{n:"Daniel Blackwood",r:"Son",c:"#7a9fc4",m:"Heavy gambling debts, and a father who refused to pay them.",a:"Claims he was at Club Noir downtown and came home after midnight.",s:"He owes $400,000 and was being disinherited.",
+q:[["Where were you tonight?","Club Noir, downtown, until well past midnight. I drove home and found the police at the door."],["How was your relationship with your father?","Difficult. He held every purse string. But I loved him, whatever you think."],["Do you have a key to the study?","No. Only Father ever had one."]],
+p:{gate:["The camera must be wrong! Victor’s system is ancient…","Daniel claimed he arrived after midnight, but the gate camera logged his car at 10:48 PM."],will:["Dad threatened that every month. It means nothing.",null],cuff:["I lost that cufflink weeks ago. Anyone could have found it.",null],key:["Fine. I borrowed it to talk to him. That’s all.","Daniel denied having a study key, yet he took the spare from Martha at 10 PM."],photo:["That could be anyone in the dark…",null],watch:["11:12? I wasn’t even here. Stop twisting things.",null]}},
+martha:{n:"Martha Greaves",r:"Housekeeper",c:"#b5a37a",m:"Thirty years of loyal service, and a bequest she feared losing.",a:"Says she was cleaning the kitchen until 11:20 PM.",s:"She handed out the spare key without asking questions.",
+q:[["Who had keys to the study?","The master key was Mr. Blackwood’s. The spare hangs on the rack in the servants’ hall.","servants"],["Did you see anyone near the study?","No one I can swear to. The house was quiet."],["How did the family get along?","Master Daniel and his father argued constantly. Poor boy."]],
+p:{key:["The hook is empty! Daniel asked for it at ten o’clock, saying his father wanted him. God forgive me.",null],cuff:["Daniel has a pair just like that, a gift from his father.",null]}},
+james:{n:"Dr. James Whitmore",r:"Family Doctor",c:"#7ab59a",m:"Alexander knew of his affair and threatened his license.",a:"Says he was at home until he was called at 11:30 PM.",s:"He is in love with Sophia.",
+q:[["What killed Alexander?","Blunt-force trauma to the skull. Time of death between 11:00 and 11:20."],["Was he ill?","Strong as an ox. No illness, no poison."],["Anything unusual at your last visit?","He said he was changing his will. He seemed resolved."]],
+p:{letter:["…Sophia and I. We were in the garden at eleven. I’m sorry.","Dr. James claimed he was at home, but he was in the garden with Sophia."],watch:["11:12 fits my estimate perfectly.",null]}},
+olivia:{n:"Olivia Reeves",r:"Journalist",c:"#c4a07a",m:"Alexander’s secrets would make her career, or end it.",a:"Says she was researching alone in the library.",s:"She secretly photographed the household that night.",
+q:[["Why were you here tonight?","Alexander promised me an exclusive: he was rewriting his will."],["What did you see?","Footsteps near the study at about 11:15. I snapped a photo. My camera is in the library.","library"],["Do you trust anyone here?","Trust? I’m a journalist. Everyone lies."]],
+p:{photo:["That’s it! 11:14, from the corridor. Tall, young, something gold at his cuff.",null],cuff:["That glint… yes! That could be what I photographed.",null]}},
+victor:{n:"Victor Crane",r:"Security Guard",c:"#a58ab5",m:"Fired by Alexander the week before, with debts of his own.",a:"Says he never left the gatehouse all night.",s:"He fell asleep on duty.",
+q:[["Who came through the gate tonight?","Mr. Hale at nine. The doctor left before ten. The camera log keeps it all.","gatehouse"],["Did you see Daniel arrive?","I… didn’t notice him. I was busy."],["Did you hear anything?","Only the wind. A quiet night, sir."]],
+p:{gate:["All right! I dozed off after 10:30. But the camera never lies. That’s Daniel’s car at 10:48.","Victor claimed constant watch, yet admits he dozed off and missed Daniel’s arrival."]}}};
+const STG=[["The Crime Scene","11:30 PM. Alexander Blackwood lies dead in his locked study. Tap the glowing objects to examine them. Find at least 3 clues to advance."],["The Seven Suspects","Everyone in this house had a reason. Read all seven dossiers to advance."],["The Interrogation Room","Question each suspect. Present evidence to expose lies. Interview all seven and hold 6+ pieces of evidence to reach the accusation."],["The Hidden Evidence","Testimony points to places you haven’t searched. Search them. Not every secret is the killer’s."],["The Final Accusation","Name the killer and choose up to 3 pieces of proof. You have one accusation."]];
+const K="seven_suspects_v1";let S=null,view="menu",acc={w:null,e:[]},tmr;
+const $=s=>document.querySelector(s),sv=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}},ld=()=>{try{return JSON.parse(localStorage.getItem(K))}catch(e){return null}};
+const fresh=()=>({stage:1,ev:[],seen:[],asked:{},press:{},unl:[],srch:[],con:[],log:[],notes:"",hints:3,fin:null,cur:"richard"});
+const sc=()=>Math.max(0,300+S.ev.length*50+S.con.length*100+Object.keys(S.asked).length*10-(3-S.hints)*75);
+function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("on");clearTimeout(e.t);e.t=setTimeout(()=>e.classList.remove("on"),2600)}
+function tw(t){const e=$("#out");if(!e)return;clearInterval(tmr);e.textContent="";let i=0;tmr=setInterval(()=>{e.textContent+=t[i++]||"";if(i>=t.length)clearInterval(tmr)},16);e.onclick=()=>{clearInterval(tmr);e.textContent=t}}
+function modal(h){$("#m").innerHTML=`<div class="mb"><button class="x" onclick="closeM()">✕</button>${h}</div>`;$("#m").classList.add("on")}
+function closeM(){$("#m").classList.remove("on")}
+function addEv(k){if(!S.ev.includes(k)){S.ev.push(k);toast("Evidence collected: "+EV[k].n)}sv()}
+const sceneN=()=>S.ev.filter(k=>EV[k].x).length;
+const askedN=()=>Object.keys(S.asked).length;
+function can(n){if(n==2)return sceneN()>=3||"Find at least 3 clues in the study first.";if(n==3)return S.seen.length>=7||"Read all 7 suspect dossiers first.";if(n==4)return S.unl.length>=1||"Interrogate suspects. Their words reveal new locations.";if(n==5)return(askedN()>=7&&S.ev.length>=6)||"Interview all 7 suspects and hold at least 6 pieces of evidence.";return true}
+function go(n){const c=can(n);if(c!==true)return toast("🔒 "+c);S.stage=n;sv();render();scrollTo(0,0)}
+function startNew(){S=fresh();view="game";sv();render()}
+function cont(){S=ld();if(!S)return toast("No saved investigation.");view="game";render()}
+function restart(){if(confirm("Restart and erase all progress?"))startNew()}
+function menu(){const has=!!ld();return `<div class="menu"><div class="cz mu" style="letter-spacing:.4em;font-size:12px">A MURDER AT BLACKWOOD MANOR</div><h1>THE <b>7</b> SUSPECTS</h1><div class="tag">Seven Suspects. One Murder. Countless Lies.</div><div class="mb2">
+<button class="btn red" onclick="startNew()">Start Investigation</button><button class="btn" ${has?"":"disabled"} onclick="cont()">Continue Investigation</button><button class="btn" onclick="view='db';render()">Suspect Database</button><button class="btn" onclick="notebook(1)">Detective Notebook</button><button class="btn" onclick="view='how';render()">How to Play</button><button class="btn" onclick="view='exit';render()">Exit</button></div><div class="credit">Created as a C Programming Project – THE 7 SUSPECTS</div></div>`}
+function profile(k,full){const p=SU[k];const rev=full&&S&&S.press[k];return `<div class="row"><div class="av" style="--c:${p.c}">${p.n[0]}</div><div><h3 style="margin:0">${p.n}</h3><span class="mu">${p.r}</span></div></div><hr><p><b class="mu">MOTIVE</b><br>${p.m}</p><p><b class="mu">ALIBI (CLAIMED)</b><br>${p.a}</p><p><b class="mu">HIDDEN SECRET</b><br>${rev?p.s:"🔒 Unknown. Present evidence to this suspect to uncover it."}</p>`}
+function openP(k){if(S&&!S.seen.includes(k)){S.seen.push(k);sv()}modal(profile(k,true));if(view=="game")render()}
+function cards(){return `<div class="grid">${Object.entries(SU).map(([k,p])=>`<button class="card ${S&&S.seen.includes(k)?"seen":""}" onclick="${view=="db"?`dbP('${k}')`:`openP('${k}')`}"><div class="av" style="--c:${p.c}">${p.n[0]}</div><h3>${p.n}</h3><small>${p.r}</small></button>`).join("")}</div>`}
+function dbP(k){const s=S;S=ld();modal(profile(k,true));S=s}
+function inspect(k){addEv(k);render();tw(EV[k].d)}
+function ask(i){const p=SU[S.cur],q=p.q[i];S.asked[S.cur]=1;S.log.push([p.n,q[0],q[1]]);if(q[2]&&!S.unl.includes(q[2])){S.unl.push(q[2]);toast("📍 New location: "+HL[q[2]][0])}sv();render();tw(p.n.split(" ")[0]+": “"+q[1]+"”")}
+function present(e){const p=SU[S.cur],r=p.p[e];let t;if(!r)t=p.n.split(" ")[0]+": “I don’t see what that has to do with me.”";else{S.press[S.cur]=1;t=p.n.split(" ")[0]+": “"+r[0]+"”";S.log.push([p.n,"(shown: "+EV[e].n+")",r[0]]);if(r[1]&&!S.con.includes(r[1])){S.con.push(r[1]);t+="\n\n⚠ CONTRADICTION LOGGED";toast("⚠ Contradiction found!")}}sv();render();tw(t)}
+function srch(k){if(!S.unl.includes(k))return toast("You don’t know about this place yet. Interrogate suspects.");if(!S.srch.includes(k))S.srch.push(k);addEv(HL[k][1]);render();tw("You search "+HL[k][0]+"…\n\n"+EV[HL[k][1]].i+" "+EV[HL[k][1]].d)}
+function hint(){if(S.hints<1)return toast("No hints left.");let h;if(sceneN()<5)h="Examine every object in the study. The desk, fireplace and clock matter.";else if(S.seen.length<7)h="Read every suspect’s dossier.";else if(askedN()<7)h="Interrogate every suspect at least once. Words unlock places.";else if(S.srch.length<S.unl.length)h="A location unlocked by testimony hasn’t been searched yet.";else if(!S.con.some(c=>c.includes("Daniel")))h="Present evidence to the suspects. Someone’s story does not match the physical evidence.";else h="Time of death 11:12. Who had a key, a motive, and was on the grounds before 11:00? Check the Investigation Board.";S.hints--;sv();render();modal(`<h3>🔍 Hint</h3><p>${h}</p><small>${S.hints} hints remaining</small>`)}
+function board(){const ks=Object.keys(SU),es=S.ev,sx=i=>60+i*97,ex=i=>es.length>1?40+i*(620/(es.length-1)):350;let L="";es.forEach((e,i)=>EV[e].w.forEach(w=>{const j=ks.indexOf(w);L+=`<path d="M${ex(i)} 330 Q${(ex(i)+sx(j))/2} 200 ${sx(j)} 92" stroke="#d3141e" stroke-width="2.2" fill="none" opacity=".9"/>`}));
+return `<svg viewBox="0 0 700 400">${L}${ks.map((k,j)=>`<circle cx="${sx(j)}" cy="68" r="24" fill="${SU[k].c}" stroke="#000" stroke-width="3"/><text x="${sx(j)}" y="76" text-anchor="middle" font-size="20" font-weight="700">${SU[k].n[0]}</text><text x="${sx(j)}" y="112" text-anchor="middle" font-size="12" fill="#f1e6c8">${SU[k].n.split(" ")[0]}</text>`).join("")}${es.map((e,i)=>`<rect x="${ex(i)-24}" y="330" width="48" height="42" rx="3" fill="#e9dfc4"/><text x="${ex(i)}" y="358" text-anchor="middle" font-size="22">${EV[e].i}</text><text x="${ex(i)}" y="388" text-anchor="middle" font-size="10" fill="#f1e6c8">${EV[e].n.split(" ")[0]}</text>`).join("")}</svg><p class="sub">Red strings link evidence to the suspects it implicates. Which suspect do the strings converge on?</p>`}
+function notebook(menuMode){const s=S;if(menuMode){S=ld();if(!S){S=s;return toast("Start an investigation first.")}}
+modal(`<h3>📓 Detective Notebook</h3><h4>Evidence (${S.ev.length}/10)</h4>${S.ev.map(k=>`<li>${EV[k].i} <b>${EV[k].n}</b><br><small>${EV[k].d}</small></li>`).join("")||"<small>Nothing yet.</small>"}<h4>⚠ Contradictions (${S.con.length})</h4>${S.con.map(c=>`<li>${c}</li>`).join("")||"<small>None found.</small>"}<h4>Statements</h4>${S.log.slice(-14).map(l=>`<li><small><b>${l[0]}</b> — ${l[1]}<br>“${l[2]}”</small></li>`).join("")||"<small>No interviews yet.</small>"}<h4>My Notes</h4><textarea oninput="S.notes=this.value;sv()" placeholder="Write your theories here…">${S.notes}</textarea>`);if(menuMode)S=s}
+function accuse(){if(!acc.w)return toast("Choose a suspect.");const proof=acc.e.filter(e=>["gate","cuff","will","key","photo"].includes(e)).length;let t,win=0,b=0;
+if(acc.w=="daniel"){if(proof>=3){t="CASE CLOSED: Perfect Conviction";win=1;b=300}else if(proof==2){t="Narrow Conviction";win=1;b=100}else t="Case Collapses"}else t="The Wrong Man";S.fin={w:acc.w,e:acc.e,t,win,proof,score:sc()+b};sv();render()}
+function ending(){const f=S.fin,truth=`<p><b>The truth:</b> Daniel was disinherited that evening. He drove in at <b>10:48 PM</b> (gate log), took the spare key from Martha at 10, argued with his father and struck him with the bookend at <b>11:12</b>. Olivia photographed him leaving at 11:14, a gold cufflink glinting. He lost its twin under the desk.</p>`;
+const msg=f.w=="daniel"?(f.proof>=3?"Confronted with the gate log, the key and the photograph, Daniel breaks down and confesses. Justice is done.":f.proof==2?"Daniel is arrested, but your case is thin. A good lawyer may unravel it. Gather more proof next time.":"You named the right man, but without proof the case collapses. Daniel walks free."):"You accused "+SU[f.w].n+". The real killer smiles as the cell door slams on an innocent. The case goes cold.";
+const rank=f.score>=1000?"Master Detective":f.score>=800?"Senior Inspector":f.score>=600?"Detective":"Rookie";
+return `<div class="panel end ${f.win?"win":""}"><h2>${f.t}</h2><p>${msg}</p>${f.w!="daniel"||f.proof<3?truth:""}<hr><h3>CASE COMPLETION REPORT</h3><li>Accused: ${SU[f.w].n}</li><li>Evidence collected: ${S.ev.length}/10</li><li>Contradictions exposed: ${S.con.length}</li><li>Hints used: ${3-S.hints}</li><li>Suspects interrogated: ${askedN()}/7</li><li><b>Final score: ${f.score} — ${rank}</b></li><br><button class="btn red" onclick="startNew()">New Investigation</button> <button class="btn" onclick="view='menu';render()">Main Menu</button></div>`}
+function stage(){const n=S.stage;let b="";
+if(n==1)b=`<div class="scene">${Object.entries(EV).filter(([k,v])=>v.x).map(([k,v])=>`<button class="hot ${S.ev.includes(k)?"got":""}" style="left:${v.x}%;top:${v.y}%" onclick="inspect('${k}')">${v.i}</button>`).join("")}</div><div id="out" class="type">Examine the room…</div><p class="mu">Clues found: ${sceneN()}/5</p>`;
+if(n==2)b=cards();
+if(n==3){const p=SU[S.cur];b=`<div class="chips">${Object.entries(SU).map(([k,v])=>`<button class="chip ${k==S.cur?"on":""}" onclick="S.cur='${k}';render()">${v.n.split(" ")[0]}${S.asked[k]?" ✓":""}</button>`).join("")}</div><div class="row"><div class="av" style="--c:${p.c}">${p.n[0]}</div><div><b>${p.n}</b> · ${p.r}<br><small>${p.a}</small></div></div><div id="out" class="type">Choose a question or present evidence.</div><h4>ASK</h4>${p.q.map((q,i)=>`<button class="opt" onclick="ask(${i})">${q[0]}</button>`).join("")}<h4>PRESENT EVIDENCE</h4>${S.ev.map(e=>`<button class="opt ev" onclick="present('${e}')">${EV[e].i} ${EV[e].n}</button>`).join("")||"<small>No evidence yet.</small>"}`}
+if(n==4)b=`<div class="grid">${Object.entries(HL).map(([k,v])=>{const u=S.unl.includes(k);return `<button class="card loc ${u?"":"lk"}" onclick="srch('${k}')">${u?(S.srch.includes(k)?"✔ ":"🔍 ")+v[0]:"🔒 Unknown location"}</button>`}).join("")}</div><div id="out" class="type">Where will you search?</div>`;
+if(n==5){if(S.fin)return ending();b=`<h4>THE KILLER</h4><div class="grid">${Object.entries(SU).map(([k,p])=>`<button class="opt ${acc.w==k?"sel":""}" onclick="acc.w='${k}';render()">${p.n} <small>(${p.r})</small></button>`).join("")}</div><h4>YOUR PROOF (up to 3) — ${acc.e.length}/3</h4><div class="grid">${S.ev.map(e=>`<button class="opt ${acc.e.includes(e)?"sel":""}" onclick="tog('${e}')">${EV[e].i} ${EV[e].n}</button>`).join("")}</div><br><button class="btn red" onclick="if(confirm('Make your final accusation? This cannot be undone.'))accuse()">⚖ Make Accusation</button>`}
+return `<div class="panel"><h2>STAGE ${n}: ${STG[n-1][0].toUpperCase()}</h2><p class="sub">${STG[n-1][1]}</p>${b}</div>`}
+function tog(e){const i=acc.e.indexOf(e);if(i>-1)acc.e.splice(i,1);else if(acc.e.length<3)acc.e.push(e);else toast("Maximum 3 pieces of proof.");render()}
+function render(){const a=$("#app");
+if(view=="menu")a.innerHTML=menu();
+else if(view=="how")a.innerHTML=`<div class="panel"><h2>HOW TO PLAY</h2><ol><li><b>Crime Scene:</b> tap glowing objects in the study to collect evidence.</li><li><b>Suspects:</b> read all seven dossiers.</li><li><b>Interrogation:</b> ask questions, then <i>present evidence</i> to catch lies. Contradictions are logged and boost your score.</li><li><b>Hidden Evidence:</b> testimony unlocks new locations to search. Some are red herrings.</li><li><b>Accusation:</b> pick the killer and up to 3 pieces of proof. Weak proof means a weak case.</li></ol><p>Use the <b>Notebook</b> and <b>Investigation Board</b> to compare statements. You have 3 hints; each costs 75 points. Progress auto-saves.</p><button class="btn" onclick="view='menu';render()">← Back</button></div>`;
+else if(view=="db")a.innerHTML=`<div class="panel"><h2>SUSPECT DATABASE</h2><p class="sub">Secrets are revealed in your saved investigation.</p>${cards()}<br><button class="btn" onclick="view='menu';render()">← Back</button></div>`;
+else if(view=="exit")a.innerHTML=`<div class="menu"><h1 style="font-size:36px">CASE FILE CLOSED</h1><p class="mu">You may now close this tab, Detective.</p><button class="btn" onclick="view='menu';render()">Reopen the Case</button></div>`;
+else a.innerHTML=`<div class="top"><div class="pills">${[1,2,3,4,5].map(n=>`<button class="pill ${S.stage==n?"on":""} ${can(n)===true?"":"lk"}" onclick="go(${n})">${can(n)===true?"":"🔒 "}${n}. ${STG[n-1][0].replace("The ","")}</button>`).join("")}</div><div class="tools"><span class="sc">★ ${sc()}</span><button onclick="notebook()">📓 Notebook</button><button onclick="modal(board())">🕸 Board</button><button onclick="hint()">💡 Hint (${S.hints})</button><button onclick="restart()">↺ Restart</button><button onclick="view='menu';render()">☰ Menu</button></div></div>${stage()}`}
+render();
+</script></body></html>
